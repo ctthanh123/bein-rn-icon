@@ -1,37 +1,81 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { iconsPaths } from '../resource';
 
-interface CustomIconsProps {
-    name: string;
+export interface CustomIconsProps {
+    name: 
+        'link' | 
+        'avatarFireMan' | 
+        'avatarHacker' | 
+        'avatarGamer' |
+        'calendar' |
+        'presentation' |
+        'like';
     size?: number;
     tintColor?: string;
     colorLabel?: string;
-    titleRight?: string;
+    styleLabel?: object;
+    labelRight?: string;
+    onPress?: () => void;
+    styleContainer?: object;
 }
 
 const CustomIcons: React.FC<CustomIconsProps> = ({
     name,
-    size = 16,
-    tintColor = 'tomato',
+    size,
+    tintColor,
     colorLabel,
-    titleRight = '',
-
+    styleLabel,
+    labelRight,
+    onPress,
+    styleContainer,
 }) => {
     return (
-        <View style={styles.container}>
-            <Text style={[styles.labelDefault, { color: colorLabel }]}>{ name }</Text>
-        </View>
+        <TouchableOpacity
+            style={[styles.container, styleContainer]}
+            onPress={onPress}
+        >
+            <Image
+                source={iconsPaths[name]}
+                style={[
+                    styles.icon,
+                    { tintColor },
+                    { width: size, height: size },
+
+                ]}
+                resizeMode='contain'
+            />
+            {!!labelRight && (
+                <Text
+                    style={[
+                        styles.labelDefault,
+                        { color: colorLabel },
+                        styleLabel,
+                    ]}
+                >
+                    { labelRight }
+                </Text>
+            )}
+        </TouchableOpacity>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'yellow',
+        flexDirection: 'row',
+        alignItems: 'center',
+        margin: 4,
+    },
+    icon: {
+        width: 36,
+        height: 36,
+        tintColor: '#2f66b7',
     },
     labelDefault: {
         color: 'black',
         fontSize: 16,
         fontWeight: '600',
+        marginLeft: 4,
     },
 });
 
