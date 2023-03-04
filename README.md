@@ -11,11 +11,11 @@ npm install react-native-rn-icons-library
 ## Usage
 
 ```js
-import { multiply } from 'react-native-rn-icons-library';
+import CustomIcons from 'react-native-rn-icons-library';
 
 // ...
 
-const result = await multiply(3, 7);
+
 ```
 
 ## Contributing
