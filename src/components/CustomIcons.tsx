@@ -26,11 +26,10 @@ const CustomIcons: React.FC<CustomIconsProps> = ({
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-
+        backgroundColor: 'yellow',
     },
     labelDefault: {
-        color: 'gray',
+        color: 'black',
         fontSize: 16,
         fontWeight: '600',
     },

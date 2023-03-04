@@ -1,3 +1,1 @@
-import { CustomIcons } from './components';
-
-export default CustomIcons;
+export { default as CustomIcons } from './components/CustomIcons';
