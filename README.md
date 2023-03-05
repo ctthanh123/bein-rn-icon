@@ -11,7 +11,7 @@ npm install react-native-rn-icons-library
 ## Usage
 
 ```js
-import CustomIcons from 'react-native-rn-icons-library';
+import { CustomIcons}  from 'react-native-rn-icons-library';
 
 // ...
 
